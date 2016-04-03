@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Convert Fahrenheit to Celsius</title>
+		<style>
+			div {
+				margin: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<form name="form1">
+			<div>
+			<label for="tempf">Temperature Fahrenheit: </label>
+			<input type="number" id="temp" name="temp">
+			</div>
+			<div>
+			<label for="tempc">Temperature Celsius: </label>
+			<output id="tempc" name="tempc">0</output>
+			</div>
+		</form>
+		
+		<script>
+			var form = document.form1;
+			
+			function tempConvert() {
+				var tempF = parseFloat(form.temp.value);
+				var tempC = 5 / 9 * (tempF - 32);
+				if (isNaN(tempC)) {
+					form.tempc.value = "";
+					return;
+				}
+				form.tempc.value = tempC.toFixed(2) + "\xB0";
+			}
+			
+			form.addEventListener("input", tempConvert);
+		</script>
+	</body>
+</html>
